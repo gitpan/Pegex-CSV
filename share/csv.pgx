@@ -2,11 +2,13 @@ csv: row*
 
 row:
   =ALL    # Since trailing EOL is option, assert that some text remains
-  (double | plain)* % /- COMMA/
+  value* % /- COMMA/
   /- (: EOL | CR | EOS)/
 
-double: /- DOUBLE ( (: DOUBLE DOUBLE | [^ DOUBLE] )* ) DOUBLE /
+value: /- ( double | plain) /
 
-plain: /- ( (: [^ COMMA DOUBLE CR NL]* [^ SPACE TAB COMMA DOUBLE CR NL ] )? )/
+double: /- DOUBLE (: (: DOUBLE DOUBLE | [^ DOUBLE] )* ) DOUBLE /
+
+plain: /- (: [^ COMMA DOUBLE CR NL]* [^ SPACE TAB COMMA DOUBLE CR NL ] )? /
 
 ws: / [ SPACE TAB ] /

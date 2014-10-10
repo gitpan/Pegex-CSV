@@ -7,7 +7,8 @@ sub got_row {
     $self->flatten($got);
 }
 
-sub got_double {
+sub got_value {
+    $_[1] =~ s/(?:^"|"$)//g;
     $_[1] =~ s/""/"/g;
     return $_[1];
 }

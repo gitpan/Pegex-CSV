@@ -4,7 +4,7 @@ extends 'Pegex::Grammar';
 
 use constant file => 'share/csv.pgx';
 
-sub make_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
+sub Xmake_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
   {
     '+toprule' => 'csv',
     'ALL' => {
