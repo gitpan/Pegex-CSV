@@ -27,4 +27,4 @@ resources:
   bugtracker: https://github.com/ingydotnet/pegex-csv-pm/issues
   homepage: https://github.com/ingydotnet/pegex-csv-pm
   repository: https://github.com/ingydotnet/pegex-csv-pm.git
-version: 0.0.2
+version: 0.0.3

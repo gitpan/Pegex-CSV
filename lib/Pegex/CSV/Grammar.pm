@@ -4,7 +4,7 @@ extends 'Pegex::Grammar';
 
 use constant file => 'share/csv.pgx';
 
-sub Xmake_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
+sub make_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
   {
     '+toprule' => 'csv',
     'ALL' => {
@@ -13,12 +13,6 @@ sub Xmake_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
     'csv' => {
       '+min' => 0,
       '.ref' => 'row'
-    },
-    'double' => {
-      '.rgx' => qr/\G[\ \t]*"((?:""|[^"])*)"/
-    },
-    'plain' => {
-      '.rgx' => qr/\G[\ \t]*((?:[^,"\r\n]*[^\ \t,"\r\n])?)/
     },
     'row' => {
       '.all' => [
@@ -30,14 +24,7 @@ sub Xmake_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
           '+max' => 1,
           '.all' => [
             {
-              '.any' => [
-                {
-                  '.ref' => 'double'
-                },
-                {
-                  '.ref' => 'plain'
-                }
-              ]
+              '.ref' => 'value'
             },
             {
               '+min' => 0,
@@ -47,14 +34,7 @@ sub Xmake_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
                   '.rgx' => qr/\G[\ \t]*,/
                 },
                 {
-                  '.any' => [
-                    {
-                      '.ref' => 'double'
-                    },
-                    {
-                      '.ref' => 'plain'
-                    }
-                  ]
+                  '.ref' => 'value'
                 }
               ]
             }
@@ -64,6 +44,9 @@ sub Xmake_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
           '.rgx' => qr/\G[\ \t]*(?:\r?\n|\r|\z)/
         }
       ]
+    },
+    'value' => {
+      '.rgx' => qr/\G[\ \t]*([\ \t]*"(?:(?:""|[^"])*)"|[\ \t]*(?:[^,"\r\n]*[^\ \t,"\r\n])?)/
     }
   }
 }
