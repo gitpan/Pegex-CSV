@@ -1,7 +1,7 @@
 csv: row*
 
 row:
-  =ALL    # Since trailing EOL is option, assert that some text remains
+  /(= ALL)/
   value* % /- COMMA/
   /- (: EOL | CR | EOS)/
 

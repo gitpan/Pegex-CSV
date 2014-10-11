@@ -7,9 +7,6 @@ use constant file => 'share/csv.pgx';
 sub make_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
   {
     '+toprule' => 'csv',
-    'ALL' => {
-      '.rgx' => qr/\G[\s\S]/
-    },
     'csv' => {
       '+min' => 0,
       '.ref' => 'row'
@@ -17,8 +14,7 @@ sub make_tree {   # Generated/Inlined by Pegex::Grammar (0.57)
     'row' => {
       '.all' => [
         {
-          '+asr' => 1,
-          '.ref' => 'ALL'
+          '.rgx' => qr/\G(?=[\s\S])/
         },
         {
           '+max' => 1,
